@@ -33,12 +33,12 @@ Un API para la division geografica de la republica dominicana, tiene todos los p
 ## Environment Variables
 
 ##### SWAGGER DOCUMENTATION
-L5_SWAGGER_GENERATE_ALWAYS=true
+- L5_SWAGGER_GENERATE_ALWAYS=true
 
 ##### Conexion de Base de Datos
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=db_name
-DB_USERNAME=db_username
-DB_PASSWORD=db_password
+- DB_CONNECTION=mysql
+- DB_HOST=127.0.0.1
+- DB_PORT=3306
+- DB_DATABASE=db_name
+- DB_USERNAME=db_username
+- DB_PASSWORD=db_password
