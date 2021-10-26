@@ -1,0 +1,493 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Territorial Republica Dominicana",
+        "description": "Documentación API Territorial Republica Dominicana",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.fmt.com.do/support",
+            "email": "info@fmt.com.do"
+        },
+        "version": "2.0"
+    },
+    "paths": {
+        "/api/paises": {
+            "get": {
+                "tags": [
+                    "Territorial"
+                ],
+                "description": "Listado de paises",
+                "operationId": "listPaises",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/paises/{pais}/show": {
+            "get": {
+                "tags": [
+                    "Territorial"
+                ],
+                "description": "Muestra un Pais",
+                "operationId": "showPais",
+                "parameters": [
+                    {
+                        "name": "pais",
+                        "in": "path",
+                        "description": "ID del pais",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "2"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/distritos": {
+            "get": {
+                "tags": [
+                    "Territorial"
+                ],
+                "description": "Listado de distritos",
+                "operationId": "distritos",
+                "parameters": [
+                    {
+                        "name": "province_code",
+                        "in": "query",
+                        "description": "Code de la provincia",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "2"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/distritos/{distrito}/show": {
+            "get": {
+                "tags": [
+                    "Territorial"
+                ],
+                "description": "Muestra un Distrito",
+                "operationId": "showDistrito",
+                "parameters": [
+                    {
+                        "name": "distrito",
+                        "in": "path",
+                        "description": "ID del distrito",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "2"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/municipios": {
+            "get": {
+                "tags": [
+                    "Territorial"
+                ],
+                "description": "Listado de municipios",
+                "operationId": "municipios",
+                "parameters": [
+                    {
+                        "name": "province_code",
+                        "in": "query",
+                        "description": "Code de la provincia",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "2"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/municipios/{municipio}/show": {
+            "get": {
+                "tags": [
+                    "Territorial"
+                ],
+                "description": "Muestra un Municipio",
+                "operationId": "showMunicipio",
+                "parameters": [
+                    {
+                        "name": "municipio",
+                        "in": "path",
+                        "description": "ID del municipio",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "2"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/provincias": {
+            "get": {
+                "tags": [
+                    "Territorial"
+                ],
+                "description": "Listado de provincias",
+                "operationId": "provincias",
+                "parameters": [
+                    {
+                        "name": "country_code",
+                        "in": "query",
+                        "description": "Code del pais",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "8089"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/provincias/{provincia}/show": {
+            "get": {
+                "tags": [
+                    "Territorial"
+                ],
+                "description": "Muestra una provincia con sus municipios y distritos",
+                "operationId": "showProvincia",
+                "parameters": [
+                    {
+                        "name": "provincia",
+                        "in": "path",
+                        "description": "ID de la provincia",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "2"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
