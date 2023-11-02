@@ -17,9 +17,11 @@ php artisan migrate:refresh --seed
 
 ### Definir variables de entorno de la base de datos en el archivo .env
 
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=territorial2
-DB_USERNAME=laravel
-DB_PASSWORD=laravel
+```shell
+-   DB_CONNECTION=mysql
+-   DB_HOST=127.0.0.1
+-   DB_PORT=3306
+-   DB_DATABASE=territorial2
+-   DB_USERNAME=laravel
+-   DB_PASSWORD=laravel
+```
