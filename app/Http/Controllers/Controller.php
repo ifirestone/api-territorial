@@ -8,9 +8,9 @@ use Illuminate\Routing\Controller as BaseController;
 
 /**
  * @OA\Info(
- *    title="Documentación API",
- *    version="1.0",
- *    description="Documentación API",
+ *    title="API Territorial Republica Dominicana",
+ *    version="2.0",
+ *    description="Documentación API Territorial Republica Dominicana",
  *   @OA\Contact(
  *       name="API Support",
  *       url= "http://www.madlab.com.do",
