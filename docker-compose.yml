@@ -1,0 +1,88 @@
+---
+version: "3.4"
+services:
+    api:
+        build:
+            context: .
+            dockerfile: Dockerfile
+            target: release
+            # target: dev
+        container_name: api-base-10
+        environment:
+            - APP_NAME="API Base 10"
+            - APP_KEY=base64:bcMqOHBBc/0zrkKgPdQjsh5A+7qBbU+GgxCJP49vH0c=
+            - APP_URL=https://api-base-10.madlab.com.do
+            - APP_ENV=production
+            - APP_DEBUG=true
+            - LOG_CHANNEL=stack
+            - LOG_LEVEL=debug
+            - DB_CONNECTION=mysql
+            - DB_HOST=mysql.madlab.com.do
+            - DB_PORT=3306
+            - DB_DATABASE=laravel
+            - DB_USERNAME=laravel
+            - DB_PASSWORD=gogetone
+            #DEFAULT USER
+            - DEFAULT_USERNAME='admin'
+            - DEFAULT_USER_EMAIL='admin@pruebas.com'
+            - DEFAULT_USER_NAME='System Administrator'
+            - DEFAULT_USER_PASS='admin'
+            #PAGINATION
+            - PAGINATION=30
+            #SWAGGER DOCUMENTATION
+            - L5_SWAGGER_GENERATE_ALWAYS=true
+            #CLOUDINARY CLOUD STORAGE
+            - CLOUDINARY_ENABLE=true
+            - CLOUDINARY_FOLDER="gogetone"
+            - CLOUDINARY_URL="cloudinary://key@gogetone"
+            - CLOUDINARY_UPLOAD_PRESET=xxxxxxxxxxxxx
+            - CLOUDINARY_NOTIFICATION_URL=
+            #TOKEN SECRET
+            - TOKEN_SECRET='secret-for-token'
+            - BROADCAST_DRIVER=log
+            - CACHE_DRIVER=file
+            - FILESYSTEM_DRIVER=local
+            - QUEUE_CONNECTION=sync
+            - SESSION_DRIVER=file
+            - SESSION_LIFETIME=120
+            - MEMCACHED_HOST=127.0.0.1
+            - REDIS_HOST=127.0.0.1
+            - REDIS_PASSWORD=null
+            - REDIS_PORT=6379
+            #MAIL SERVER
+            - MAIL_MAILER=smtp
+            - MAIL_HOST=mail.gogetone.com.do
+            - MAIL_PORT=465
+            - MAIL_USERNAME=noreply@gogetone.com.do
+            - MAIL_PASSWORD=gogetone
+            - MAIL_ENCRYPTION=SSL
+            - MAIL_FROM_ADDRESS=noreply@gogetone.com.do
+            - MAIL_FROM_NAME="GO Get One"
+            #VARS
+            - AWS_ACCESS_KEY_ID=
+            - AWS_SECRET_ACCESS_KEY=
+            - AWS_DEFAULT_REGION=us-east-1
+            - AWS_BUCKET=
+            - AWS_USE_PATH_STYLE_ENDPOINT=false
+            - PUSHER_APP_ID=
+            - PUSHER_APP_KEY=
+            - PUSHER_APP_SECRET=
+            - PUSHER_APP_CLUSTER=mt1
+            - MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+            - MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+        networks:
+            - proxy
+        ports:
+            - "4001:8000"
+        volumes:
+            - ./.env:/var/www/.env
+        labels:
+            - "traefik.enable=true"
+            - "traefik.docker.network=proxy"
+            - "traefik.http.routers.api-base-10-secure.entrypoints=websecure"
+            - "traefik.http.routers.api-base-10-secure.rule=Host(`api-base-10.madlab.com.do`)"
+        restart: unless-stopped
+networks:
+    proxy:
+        external: true
+        # name: proxy

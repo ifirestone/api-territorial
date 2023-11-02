@@ -1,0 +1,68 @@
+ARG PHP_VERSION=8.1.8
+FROM php:${PHP_VERSION}-fpm as base
+
+# App variables
+ENV APP_USER www-data
+ENV WORK_DIR /var/www
+
+# Add docker php ext repo
+ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+
+# Install php extensions
+RUN chmod +x /usr/local/bin/install-php-extensions && sync && \
+    install-php-extensions mbstring pdo_mysql zip exif pcntl gd memcache intl
+
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpng-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+    locales \
+    zip \
+    jpegoptim optipng pngquant gifsicle \
+    unzip \
+    curl \
+    lua-zlib-dev \
+    libmemcached-dev
+
+# Install composer and set permissions for binaries
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    && chgrp ${APP_USER} /usr/local/bin/composer \
+    && chmod g+x /usr/local/bin/composer
+
+# Clear cache
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# SQLSVR --START--
+# Accepts the end user license agreement
+ENV ACCEPT_EULA=Y
+
+# Install utils packages
+RUN apt-get update \
+    && apt-get install -y gnupg wget lsb-release
+
+# Intall MSQL Server Driver for PHP IN CASE NEED IT
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
+    && curl https://packages.microsoft.com/config/debian/$(lsb_release -rs)/prod.list > /etc/apt/sources.list.d/mssql-release.list \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends msodbcsql18 \
+        odbcinst=2.3.7 \
+        odbcinst1debian2=2.3.7 \
+        unixodbc=2.3.7 \
+        unixodbc-dev=2.3.7 \
+    && pecl install sqlsrv pdo_sqlsrv \
+    && docker-php-ext-enable sqlsrv pdo_sqlsrv
+
+# Change TSL version in OpenSSL Config file
+RUN sed -i 's/TLSv1.2/TLSv1/' /etc/ssl/openssl.cnf \
+    && sed -i 's/DEFAULT@SECLEVEL=2/DEFAULT@SECLEVEL=1/' /etc/ssl/openssl.cnf
+# SQLSVR --END--
+
+# Define Labels
+LABEL maintainer="info@madlab.com.do" \
+      project="API Base 10" \
+      org.label-schema.name="api-base-10" \
+      org.label-schema.description="MADLAB API Base image" \
+      org.label-schema.url="https://madlab.com.do" \
+      org.label-schema.schema-version="1.0"

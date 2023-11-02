@@ -1,0 +1,8 @@
+.env*
+.dockerignore
+docker*
+Docker*
+README*
+.vscode
+.git
+.gitignore

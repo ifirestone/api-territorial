@@ -1,0 +1,1833 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Documentación API",
+        "description": "Documentación API",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.fmt.com.do",
+            "email": "ivan.firestone@fmt.com.do"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "description": "Autenticarse en el sistema",
+                "operationId": "login",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "username",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "username": {
+                                        "description": "UserName",
+                                        "type": "string",
+                                        "example": "admin"
+                                    },
+                                    "password": {
+                                        "description": "Password",
+                                        "type": "string",
+                                        "example": "admin"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Sorry, wrong email address or password. Please try again"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "user": {
+                                            "type": "json",
+                                            "example": "User information"
+                                        },
+                                        "token": {
+                                            "type": "string",
+                                            "example": "bearer token for user"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/logout": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "description": "Revocar autorizacion en el sistema",
+                "operationId": "logout",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "successful"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "User has been logged out"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/ping": {
+            "get": {
+                "tags": [
+                    "Debugger"
+                ],
+                "description": "Pruebas de API",
+                "operationId": "ping",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/profile": {
+            "get": {
+                "tags": [
+                    "Profile"
+                ],
+                "description": "Obtener el profile del usuario autenticado",
+                "operationId": "get_profile",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/profile/update": {
+            "post": {
+                "tags": [
+                    "Profile"
+                ],
+                "description": "Actualizar el profile del usuario autenticado",
+                "operationId": "update_profile",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "nombre",
+                                    "email",
+                                    "username"
+                                ],
+                                "properties": {
+                                    "username": {
+                                        "type": "string",
+                                        "example": "admin"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "admin@pruebas.com"
+                                    },
+                                    "nombre": {
+                                        "type": "string",
+                                        "example": "Juan Perez"
+                                    },
+                                    "telefono": {
+                                        "type": "string",
+                                        "example": "123-123-1234"
+                                    },
+                                    "movil": {
+                                        "type": "string",
+                                        "example": "123-123-1234"
+                                    },
+                                    "imagen": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Stored",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/profile/password": {
+            "post": {
+                "tags": [
+                    "Profile"
+                ],
+                "description": "Cambiar la contraseña para el usuario autenticado",
+                "operationId": "chg_password",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "current_password",
+                                    "password",
+                                    "password_confirmation"
+                                ],
+                                "properties": {
+                                    "current_password": {
+                                        "type": "string",
+                                        "example": "CurrentPasswordHere"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "NewSuperPasswordHere"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "example": "NewSuperPasswordHere"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Stored",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/profile/destroy_image": {
+            "delete": {
+                "tags": [
+                    "Profile"
+                ],
+                "description": "Remover Imagen del Profile",
+                "operationId": "destroy_image",
+                "responses": {
+                    "201": {
+                        "description": "Successful Destroyed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/roles": {
+            "get": {
+                "tags": [
+                    "Roles"
+                ],
+                "description": "Listado de roles",
+                "operationId": "role_index",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/roles/permisos": {
+            "get": {
+                "tags": [
+                    "Roles"
+                ],
+                "description": "Get All Permissions",
+                "operationId": "get_permisos",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/roles/modulos": {
+            "get": {
+                "tags": [
+                    "Roles"
+                ],
+                "description": "Mostrar todos los modulos registrados",
+                "operationId": "get_modulos",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/roles/store": {
+            "post": {
+                "tags": [
+                    "Roles"
+                ],
+                "description": "Crear un nuevo rol",
+                "operationId": "role_store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "nombre",
+                                    "descripcion"
+                                ],
+                                "properties": {
+                                    "nombre": {
+                                        "description": "Nombre del Role",
+                                        "type": "string",
+                                        "example": "Vendedores"
+                                    },
+                                    "descripcion": {
+                                        "description": "Descripcion del nuevo rol",
+                                        "type": "string",
+                                        "example": "Role de Pruebas"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Stored",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/roles/{role}/show": {
+            "get": {
+                "tags": [
+                    "Roles"
+                ],
+                "description": "Mostrar un role",
+                "operationId": "role_show",
+                "parameters": [
+                    {
+                        "name": "role",
+                        "in": "path",
+                        "description": "Id del role",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/roles/{role}/update": {
+            "post": {
+                "tags": [
+                    "Roles"
+                ],
+                "description": "Actualizar un role",
+                "operationId": "role_update",
+                "parameters": [
+                    {
+                        "name": "role",
+                        "in": "path",
+                        "description": "Model Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "nombre",
+                                    "descripcion"
+                                ],
+                                "properties": {
+                                    "nombre": {
+                                        "description": "Nombre del Horario",
+                                        "type": "string",
+                                        "example": "Vendedor Actualizado"
+                                    },
+                                    "descripcion": {
+                                        "description": "Descripcion del Role",
+                                        "type": "string",
+                                        "example": "My New Awesome Role"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Stored",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/roles/{role}/delete": {
+            "delete": {
+                "tags": [
+                    "Roles"
+                ],
+                "description": "Borrar un role",
+                "operationId": "role_destroy",
+                "parameters": [
+                    {
+                        "name": "role",
+                        "in": "path",
+                        "description": "Model Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Deleted",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "successful"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Recurso borrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Error recurso no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Recurso no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/roles/{role}/attachModule": {
+            "post": {
+                "tags": [
+                    "Roles"
+                ],
+                "description": "Vincular un modulo a un role",
+                "operationId": "attachModule",
+                "parameters": [
+                    {
+                        "name": "role",
+                        "in": "path",
+                        "description": "Model Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "modulo",
+                        "in": "query",
+                        "description": "Model Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successful Stored",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/roles/{role}/detachModule": {
+            "delete": {
+                "tags": [
+                    "Roles"
+                ],
+                "description": "Desvincular un Modulo a un role",
+                "operationId": "detachModule",
+                "parameters": [
+                    {
+                        "name": "role",
+                        "in": "path",
+                        "description": "Model Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "modulo",
+                        "in": "query",
+                        "description": "Id del modulo",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Modulo desvinculado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "Modulo desvinculado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Modulo no se encuentra asociado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Modulo no se encuentra asociado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/roles/{role}/attachPermission": {
+            "post": {
+                "tags": [
+                    "Roles"
+                ],
+                "description": "Vincular Permiso a un role",
+                "operationId": "attachPermission",
+                "parameters": [
+                    {
+                        "name": "role",
+                        "in": "path",
+                        "description": "Model Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "permiso",
+                        "in": "query",
+                        "description": "Model Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successful Stored",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/roles/{role}/detachPermission": {
+            "delete": {
+                "tags": [
+                    "Roles"
+                ],
+                "description": "Desvincular Permiso de un role",
+                "operationId": "detachPermission",
+                "parameters": [
+                    {
+                        "name": "role",
+                        "in": "path",
+                        "description": "Model Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "1"
+                        }
+                    },
+                    {
+                        "name": "permiso",
+                        "in": "query",
+                        "description": "Model Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Permiso desvinculado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "Permiso desvinculado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Permiso no se encuentra asociado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Permiso no se encuentra asociado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/usuarios": {
+            "get": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "description": "Listado de Usuarios",
+                "operationId": "user_index",
+                "parameters": [
+                    {
+                        "name": "busqueda",
+                        "in": "query",
+                        "description": "Parametro de busqueda",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "example": "admin"
+                        }
+                    },
+                    {
+                        "name": "estado",
+                        "in": "query",
+                        "description": "Filtra los usuarios entre activos y no activos",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "activos | inactivos",
+                            "example": "activos"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/usuarios/store": {
+            "post": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "description": "Crear un nuevo usuario",
+                "operationId": "user_store",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "nombre",
+                                    "email",
+                                    "username",
+                                    "role",
+                                    "password",
+                                    "password_confirmation"
+                                ],
+                                "properties": {
+                                    "nombre": {
+                                        "description": "Nombre del usuario",
+                                        "type": "string",
+                                        "example": "Juan Perez"
+                                    },
+                                    "email": {
+                                        "description": "Email del usuario",
+                                        "type": "string",
+                                        "example": "user@email.aqui"
+                                    },
+                                    "username": {
+                                        "description": "Nombre de Usuario",
+                                        "type": "string",
+                                        "example": "admin"
+                                    },
+                                    "role": {
+                                        "description": "Model Id",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "telefono": {
+                                        "description": "Telefono Contacto",
+                                        "type": "string",
+                                        "example": "(999) 555-5555"
+                                    },
+                                    "movil": {
+                                        "description": "Movil Contacto",
+                                        "type": "string",
+                                        "example": "(999) 444-3333"
+                                    },
+                                    "password": {
+                                        "description": "Password",
+                                        "type": "string",
+                                        "example": "SuperStrongPasswordHere"
+                                    },
+                                    "password_confirmation": {
+                                        "description": "Password Confirmation",
+                                        "type": "string",
+                                        "example": "SuperStrongPasswordHere"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Stored",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/usuarios/{usuario}/show": {
+            "get": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "description": "Mostrar un usuario",
+                "operationId": "user_show",
+                "parameters": [
+                    {
+                        "name": "usuario",
+                        "in": "path",
+                        "description": "Model Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/usuarios/{usuario}/update": {
+            "post": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "description": "Actualizar un usuario",
+                "operationId": "user_update",
+                "parameters": [
+                    {
+                        "name": "usuario",
+                        "in": "path",
+                        "description": "Model Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "nombre",
+                                    "username",
+                                    "email",
+                                    "role"
+                                ],
+                                "properties": {
+                                    "nombre": {
+                                        "description": "Nombre del usuario",
+                                        "type": "string",
+                                        "example": "Juan Perez"
+                                    },
+                                    "email": {
+                                        "description": "Email del usuario",
+                                        "type": "string",
+                                        "example": "user@email.aqui"
+                                    },
+                                    "username": {
+                                        "description": "Nombre de Usuario",
+                                        "type": "string",
+                                        "example": "admin"
+                                    },
+                                    "role": {
+                                        "description": "Role ID Asignado",
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "telefono": {
+                                        "description": "Telefono Contacto",
+                                        "type": "string",
+                                        "example": "(999) 555-5555"
+                                    },
+                                    "movil": {
+                                        "description": "Movil Contacto",
+                                        "type": "string",
+                                        "example": "(999) 444-3333"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Stored",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/usuarios/{usuario}/resetpassword": {
+            "post": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "description": "Reiniciar la clave de acceso de un usuario",
+                "operationId": "reset_password",
+                "parameters": [
+                    {
+                        "name": "usuario",
+                        "in": "path",
+                        "description": "Model Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "password",
+                                    "password_confirmation"
+                                ],
+                                "properties": {
+                                    "password": {
+                                        "description": "Password",
+                                        "type": "string",
+                                        "example": "TheNewSuperPassword"
+                                    },
+                                    "password_confirmation": {
+                                        "description": "Password Confirmation",
+                                        "type": "string",
+                                        "example": "TheNewSuperPassword"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful Stored",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/usuarios/{usuario}/delete": {
+            "delete": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "description": "Borrar un usuario",
+                "operationId": "user_destroy",
+                "parameters": [
+                    {
+                        "name": "usuario",
+                        "in": "path",
+                        "description": "Model Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful Deleted",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "successful"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Recurso borrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Error recurso no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Recurso no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        },
+        "/api/usuarios/{usuario}/toggle": {
+            "post": {
+                "tags": [
+                    "Usuarios"
+                ],
+                "description": "Activar o des-activar un usuario",
+                "operationId": "user_toggle",
+                "parameters": [
+                    {
+                        "name": "usuario",
+                        "in": "path",
+                        "description": "Model Id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "1"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successful Activated or Deactivated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "Json",
+                                            "example": "[...]"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Error recurso no encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "example": "error"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Recurso no encontrado"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "token": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "token": {
+                "type": "http",
+                "name": "Authorization",
+                "in": "header",
+                "scheme": "Bearer"
+            }
+        }
+    }
+}
