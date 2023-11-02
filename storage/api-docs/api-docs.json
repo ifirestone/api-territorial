@@ -11,13 +11,13 @@
         "version": "1.0"
     },
     "paths": {
-        "/api/usuarios": {
+        "/api/municipios": {
             "get": {
                 "tags": [
-                    "Usuarios"
+                    "Territorial"
                 ],
-                "description": "Listado de Usuarios",
-                "operationId": "user_index",
+                "description": "Listado Municipios",
+                "operationId": "municipios_index",
                 "parameters": [
                     {
                         "name": "busqueda",
@@ -27,18 +27,29 @@
                         "schema": {
                             "type": "string",
                             "format": "string",
-                            "example": "admin"
+                            "example": "municipio"
                         }
                     },
                     {
-                        "name": "estado",
+                        "name": "provincias",
                         "in": "query",
-                        "description": "Filtra los usuarios entre activos y no activos",
+                        "description": "Provincia Model ID",
                         "required": false,
                         "schema": {
                             "type": "string",
-                            "format": "activos | inactivos",
-                            "example": "activos"
+                            "format": "string",
+                            "example": "1,2,3"
+                        }
+                    },
+                    {
+                        "name": "paginar",
+                        "in": "query",
+                        "description": "Parametro de Paginacion",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "integer",
+                            "example": "30"
                         }
                     }
                 ],
@@ -75,139 +86,37 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "token": []
-                    }
-                ]
+                }
             }
         },
-        "/api/usuarios/store": {
-            "post": {
-                "tags": [
-                    "Usuarios"
-                ],
-                "description": "Crear un nuevo usuario",
-                "operationId": "user_store",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "required": [
-                                    "nombre",
-                                    "email",
-                                    "username",
-                                    "role",
-                                    "password",
-                                    "password_confirmation"
-                                ],
-                                "properties": {
-                                    "nombre": {
-                                        "description": "Nombre del usuario",
-                                        "type": "string",
-                                        "example": "Juan Perez"
-                                    },
-                                    "email": {
-                                        "description": "Email del usuario",
-                                        "type": "string",
-                                        "example": "user@email.aqui"
-                                    },
-                                    "username": {
-                                        "description": "Nombre de Usuario",
-                                        "type": "string",
-                                        "example": "admin"
-                                    },
-                                    "role": {
-                                        "description": "Model Id",
-                                        "type": "integer",
-                                        "example": "1"
-                                    },
-                                    "telefono": {
-                                        "description": "Telefono Contacto",
-                                        "type": "string",
-                                        "example": "(999) 555-5555"
-                                    },
-                                    "movil": {
-                                        "description": "Movil Contacto",
-                                        "type": "string",
-                                        "example": "(999) 444-3333"
-                                    },
-                                    "password": {
-                                        "description": "Password",
-                                        "type": "string",
-                                        "example": "SuperStrongPasswordHere"
-                                    },
-                                    "password_confirmation": {
-                                        "description": "Password Confirmation",
-                                        "type": "string",
-                                        "example": "SuperStrongPasswordHere"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "201": {
-                        "description": "Successful Stored",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "data": {
-                                            "type": "Json",
-                                            "example": "[...]"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Bad Request",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Unauthenticated"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "token": []
-                    }
-                ]
-            }
-        },
-        "/api/usuarios/{usuario}/show": {
+        "/api/provincias": {
             "get": {
                 "tags": [
-                    "Usuarios"
+                    "Territorial"
                 ],
-                "description": "Mostrar un usuario",
-                "operationId": "user_show",
+                "description": "Listado Provincias",
+                "operationId": "provincia_index",
                 "parameters": [
                     {
-                        "name": "usuario",
-                        "in": "path",
-                        "description": "Model Id",
-                        "required": true,
+                        "name": "busqueda",
+                        "in": "query",
+                        "description": "Parametro de busqueda",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "example": "provincia"
+                        }
+                    },
+                    {
+                        "name": "paginar",
+                        "in": "query",
+                        "description": "Parametro de Paginacion",
+                        "required": false,
                         "schema": {
                             "type": "integer",
                             "format": "integer",
-                            "example": "1"
+                            "example": "30"
                         }
                     }
                 ],
@@ -244,318 +153,54 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "token": []
-                    }
-                ]
+                }
             }
         },
-        "/api/usuarios/{usuario}/update": {
-            "post": {
+        "/api/sectores": {
+            "get": {
                 "tags": [
-                    "Usuarios"
+                    "Territorial"
                 ],
-                "description": "Actualizar un usuario",
-                "operationId": "user_update",
+                "description": "Listado Sectores",
+                "operationId": "sectores_index",
                 "parameters": [
                     {
-                        "name": "usuario",
-                        "in": "path",
-                        "description": "Model Id",
-                        "required": true,
+                        "name": "busqueda",
+                        "in": "query",
+                        "description": "Parametro de busqueda",
+                        "required": false,
                         "schema": {
-                            "type": "integer",
-                            "format": "integer",
-                            "example": "1"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "required": [
-                                    "nombre",
-                                    "username",
-                                    "email",
-                                    "role"
-                                ],
-                                "properties": {
-                                    "nombre": {
-                                        "description": "Nombre del usuario",
-                                        "type": "string",
-                                        "example": "Juan Perez"
-                                    },
-                                    "email": {
-                                        "description": "Email del usuario",
-                                        "type": "string",
-                                        "example": "user@email.aqui"
-                                    },
-                                    "username": {
-                                        "description": "Nombre de Usuario",
-                                        "type": "string",
-                                        "example": "admin"
-                                    },
-                                    "role": {
-                                        "description": "Role ID Asignado",
-                                        "type": "integer",
-                                        "example": "1"
-                                    },
-                                    "telefono": {
-                                        "description": "Telefono Contacto",
-                                        "type": "string",
-                                        "example": "(999) 555-5555"
-                                    },
-                                    "movil": {
-                                        "description": "Movil Contacto",
-                                        "type": "string",
-                                        "example": "(999) 444-3333"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "201": {
-                        "description": "Successful Stored",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "data": {
-                                            "type": "Json",
-                                            "example": "[...]"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
+                            "type": "string",
+                            "format": "string",
+                            "example": "sector"
                         }
                     },
-                    "401": {
-                        "description": "Bad Request",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Unauthenticated"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
                     {
-                        "token": []
-                    }
-                ]
-            }
-        },
-        "/api/usuarios/{usuario}/resetpassword": {
-            "post": {
-                "tags": [
-                    "Usuarios"
-                ],
-                "description": "Reiniciar la clave de acceso de un usuario",
-                "operationId": "reset_password",
-                "parameters": [
-                    {
-                        "name": "usuario",
-                        "in": "path",
-                        "description": "Model Id",
-                        "required": true,
+                        "name": "municipios",
+                        "in": "query",
+                        "description": "Municipio Model ID",
+                        "required": false,
                         "schema": {
-                            "type": "integer",
-                            "format": "integer",
-                            "example": "1"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "required": [
-                                    "password",
-                                    "password_confirmation"
-                                ],
-                                "properties": {
-                                    "password": {
-                                        "description": "Password",
-                                        "type": "string",
-                                        "example": "TheNewSuperPassword"
-                                    },
-                                    "password_confirmation": {
-                                        "description": "Password Confirmation",
-                                        "type": "string",
-                                        "example": "TheNewSuperPassword"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "201": {
-                        "description": "Successful Stored",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "data": {
-                                            "type": "Json",
-                                            "example": "[...]"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
+                            "type": "string",
+                            "format": "string",
+                            "example": "1,2,3"
                         }
                     },
-                    "401": {
-                        "description": "Bad Request",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Unauthenticated"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
                     {
-                        "token": []
-                    }
-                ]
-            }
-        },
-        "/api/usuarios/{usuario}/delete": {
-            "delete": {
-                "tags": [
-                    "Usuarios"
-                ],
-                "description": "Borrar un usuario",
-                "operationId": "user_destroy",
-                "parameters": [
-                    {
-                        "name": "usuario",
-                        "in": "path",
-                        "description": "Model Id",
-                        "required": true,
+                        "name": "paginar",
+                        "in": "query",
+                        "description": "Parametro de Paginacion",
+                        "required": false,
                         "schema": {
                             "type": "integer",
                             "format": "integer",
-                            "example": "1"
+                            "example": "30"
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Successful Deleted",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "status": {
-                                            "type": "string",
-                                            "example": "successful"
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Recurso borrado"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "404": {
-                        "description": "Error recurso no encontrado",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "status": {
-                                            "type": "string",
-                                            "example": "error"
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Recurso no encontrado"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Bad Request",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Unauthenticated"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                },
-                "security": [
-                    {
-                        "token": []
-                    }
-                ]
-            }
-        },
-        "/api/usuarios/{usuario}/toggle": {
-            "post": {
-                "tags": [
-                    "Usuarios"
-                ],
-                "description": "Activar o des-activar un usuario",
-                "operationId": "user_toggle",
-                "parameters": [
-                    {
-                        "name": "usuario",
-                        "in": "path",
-                        "description": "Model Id",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "format": "integer",
-                            "example": "1"
-                        }
-                    }
-                ],
-                "responses": {
-                    "201": {
-                        "description": "Successful Activated or Deactivated",
+                        "description": "Successful Response",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -570,26 +215,6 @@
                             }
                         }
                     },
-                    "404": {
-                        "description": "Error recurso no encontrado",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "status": {
-                                            "type": "string",
-                                            "example": "error"
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Recurso no encontrado"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
                     "401": {
                         "description": "Bad Request",
                         "content": {
@@ -606,12 +231,7 @@
                             }
                         }
                     }
-                },
-                "security": [
-                    {
-                        "token": []
-                    }
-                ]
+                }
             }
         }
     },
