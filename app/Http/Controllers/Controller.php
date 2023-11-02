@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Tools\ToolsTrait;
-use App\Tools\CloudinaryTrait;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -29,5 +27,5 @@ use Illuminate\Routing\Controller as BaseController;
  */
 class Controller extends BaseController
 {
-    use AuthorizesRequests, ValidatesRequests, ToolsTrait, CloudinaryTrait;
+    use AuthorizesRequests, ValidatesRequests;
 }

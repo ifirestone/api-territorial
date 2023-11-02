@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('modulos', function (Blueprint $table) {
+        Schema::create('provincias', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('descripcion');
-            $table->timestamps();
-            $table->softDeletes();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
     }
 
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('modulos');
+        Schema::dropIfExists('provincias');
     }
 };
