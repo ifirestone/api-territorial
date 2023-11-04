@@ -28,20 +28,5 @@ class DataSeeder extends Seeder
         $path3 = getcwd() . '/database/seeders/sectores.sql';
         $sql3 = file_get_contents($path3);
         DB::unprepared($sql3);
-
-        // Schema::table('provincias', function (Blueprint $table) {
-        //     $table->timestamp('created_at')->useCurrent();
-        //     $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
-        // });
-
-        // Schema::table('municipios', function (Blueprint $table) {
-        //     $table->timestamp('created_at')->useCurrent();
-        //     $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
-        // });
-
-        // Schema::table('sectors', function (Blueprint $table) {
-        //     $table->timestamp('created_at')->useCurrent();
-        //     $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
-        // });
     }
 }

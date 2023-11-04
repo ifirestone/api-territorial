@@ -1,14 +1,14 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Documentación API",
-        "description": "Documentación API",
+        "title": "API Territorial Republica Dominicana",
+        "description": "Documentación API Territorial Republica Dominicana",
         "contact": {
             "name": "API Support",
             "url": "http://www.madlab.com.do",
             "email": "soporte@madlab.com.do"
         },
-        "version": "1.0"
+        "version": "2.0"
     },
     "paths": {
         "/api/municipios": {
