@@ -1,0 +1,792 @@
+[
+    {
+        "id": 101,
+        "provincia_id": 1,
+        "nombre": "SANTO DOMINGO"
+    },
+    {
+        "id": 201,
+        "provincia_id": 71,
+        "nombre": "AZUA"
+    },
+    {
+        "id": 202,
+        "provincia_id": 71,
+        "nombre": "LAS CHARCAS"
+    },
+    {
+        "id": 203,
+        "provincia_id": 71,
+        "nombre": "LAS YAYAS DE VIAJAMA"
+    },
+    {
+        "id": 204,
+        "provincia_id": 71,
+        "nombre": "PADRE LAS CASAS"
+    },
+    {
+        "id": 205,
+        "provincia_id": 71,
+        "nombre": "PERALTA"
+    },
+    {
+        "id": 206,
+        "provincia_id": 71,
+        "nombre": "SABANA YEGUA"
+    },
+    {
+        "id": 207,
+        "provincia_id": 71,
+        "nombre": "PUEBLO VIEJO"
+    },
+    {
+        "id": 208,
+        "provincia_id": 71,
+        "nombre": "TABARA ARRIBA"
+    },
+    {
+        "id": 209,
+        "provincia_id": 71,
+        "nombre": "GUAYABAL"
+    },
+    {
+        "id": 210,
+        "provincia_id": 71,
+        "nombre": "ESTEBANIA"
+    },
+    {
+        "id": 301,
+        "provincia_id": 82,
+        "nombre": "NEIBA"
+    },
+    {
+        "id": 302,
+        "provincia_id": 82,
+        "nombre": "GALVAN"
+    },
+    {
+        "id": 303,
+        "provincia_id": 82,
+        "nombre": "TAMAYO"
+    },
+    {
+        "id": 304,
+        "provincia_id": 82,
+        "nombre": "VILLA JARAGUA"
+    },
+    {
+        "id": 305,
+        "provincia_id": 82,
+        "nombre": "LOS RIOS"
+    },
+    {
+        "id": 401,
+        "provincia_id": 81,
+        "nombre": "BARAHONA"
+    },
+    {
+        "id": 402,
+        "provincia_id": 81,
+        "nombre": "CABRAL"
+    },
+    {
+        "id": 403,
+        "provincia_id": 81,
+        "nombre": "ENRIQUILLO"
+    },
+    {
+        "id": 404,
+        "provincia_id": 81,
+        "nombre": "PARAISO"
+    },
+    {
+        "id": 405,
+        "provincia_id": 81,
+        "nombre": "VICENTE NOBLE"
+    },
+    {
+        "id": 406,
+        "provincia_id": 81,
+        "nombre": "EL PEÑON"
+    },
+    {
+        "id": 407,
+        "provincia_id": 81,
+        "nombre": "LA CIENAGA"
+    },
+    {
+        "id": 408,
+        "provincia_id": 81,
+        "nombre": "FUNDACION"
+    },
+    {
+        "id": 409,
+        "provincia_id": 81,
+        "nombre": "LAS SALINAS"
+    },
+    {
+        "id": 410,
+        "provincia_id": 81,
+        "nombre": "POLO"
+    },
+    {
+        "id": 411,
+        "provincia_id": 81,
+        "nombre": "JAQUIMEYES"
+    },
+    {
+        "id": 501,
+        "provincia_id": 63,
+        "nombre": "DAJABON"
+    },
+    {
+        "id": 502,
+        "provincia_id": 63,
+        "nombre": "LOMA DE CABRERA"
+    },
+    {
+        "id": 503,
+        "provincia_id": 63,
+        "nombre": "PARTIDO"
+    },
+    {
+        "id": 504,
+        "provincia_id": 63,
+        "nombre": "RESTAURACION"
+    },
+    {
+        "id": 505,
+        "provincia_id": 63,
+        "nombre": "EL PINO"
+    },
+    {
+        "id": 601,
+        "provincia_id": 31,
+        "nombre": "SAN FRANCISCO DE MACORIS"
+    },
+    {
+        "id": 602,
+        "provincia_id": 31,
+        "nombre": "ARENOSO"
+    },
+    {
+        "id": 603,
+        "provincia_id": 31,
+        "nombre": "CASTILLO"
+    },
+    {
+        "id": 604,
+        "provincia_id": 31,
+        "nombre": "PIMENTEL"
+    },
+    {
+        "id": 605,
+        "provincia_id": 31,
+        "nombre": "VILLA RIVA"
+    },
+    {
+        "id": 606,
+        "provincia_id": 31,
+        "nombre": "LAS GUARANAS"
+    },
+    {
+        "id": 607,
+        "provincia_id": 31,
+        "nombre": "EUGENIO MARIA DE HOSTOS"
+    },
+    {
+        "id": 701,
+        "provincia_id": 73,
+        "nombre": "COMENDADOR"
+    },
+    {
+        "id": 702,
+        "provincia_id": 73,
+        "nombre": "BANICA"
+    },
+    {
+        "id": 703,
+        "provincia_id": 73,
+        "nombre": "EL LLANO"
+    },
+    {
+        "id": 704,
+        "provincia_id": 73,
+        "nombre": "HONDO VALLE"
+    },
+    {
+        "id": 705,
+        "provincia_id": 73,
+        "nombre": "PEDRO SANTANA"
+    },
+    {
+        "id": 706,
+        "provincia_id": 73,
+        "nombre": "JUAN SANTIAGO"
+    },
+    {
+        "id": 801,
+        "provincia_id": 24,
+        "nombre": "EL SEIBO"
+    },
+    {
+        "id": 802,
+        "provincia_id": 24,
+        "nombre": "MICHES"
+    },
+    {
+        "id": 901,
+        "provincia_id": 56,
+        "nombre": "MOCA"
+    },
+    {
+        "id": 902,
+        "provincia_id": 56,
+        "nombre": "CAYETANO GERMOSEN"
+    },
+    {
+        "id": 903,
+        "provincia_id": 56,
+        "nombre": "GASPAR HERNANDEZ"
+    },
+    {
+        "id": 904,
+        "provincia_id": 56,
+        "nombre": "JAMAO AL NORTE"
+    },
+    {
+        "id": 905,
+        "provincia_id": 56,
+        "nombre": "SAN VÍCTOR"
+    },
+    {
+        "id": 1001,
+        "provincia_id": 83,
+        "nombre": "JIMANI"
+    },
+    {
+        "id": 1002,
+        "provincia_id": 83,
+        "nombre": "DUVERGE"
+    },
+    {
+        "id": 1003,
+        "provincia_id": 83,
+        "nombre": "LA DESCUBIERTA"
+    },
+    {
+        "id": 1004,
+        "provincia_id": 83,
+        "nombre": "POSTRER RIO"
+    },
+    {
+        "id": 1005,
+        "provincia_id": 83,
+        "nombre": "CRISTOBAL"
+    },
+    {
+        "id": 1006,
+        "provincia_id": 83,
+        "nombre": "MELLA"
+    },
+    {
+        "id": 1101,
+        "provincia_id": 23,
+        "nombre": "HIGUEY"
+    },
+    {
+        "id": 1102,
+        "provincia_id": 23,
+        "nombre": "SAN RAFAEL DEL YUMA"
+    },
+    {
+        "id": 1201,
+        "provincia_id": 22,
+        "nombre": "LA ROMANA"
+    },
+    {
+        "id": 1202,
+        "provincia_id": 22,
+        "nombre": "GUAYMATE"
+    },
+    {
+        "id": 1203,
+        "provincia_id": 22,
+        "nombre": "VILLA HERMOSA"
+    },
+    {
+        "id": 1301,
+        "provincia_id": 41,
+        "nombre": "LA VEGA"
+    },
+    {
+        "id": 1302,
+        "provincia_id": 41,
+        "nombre": "CONSTANZA"
+    },
+    {
+        "id": 1303,
+        "provincia_id": 41,
+        "nombre": "JARABACOA"
+    },
+    {
+        "id": 1304,
+        "provincia_id": 41,
+        "nombre": "JIMA ABAJO"
+    },
+    {
+        "id": 1401,
+        "provincia_id": 33,
+        "nombre": "NAGUA"
+    },
+    {
+        "id": 1402,
+        "provincia_id": 33,
+        "nombre": "CABRERA"
+    },
+    {
+        "id": 1403,
+        "provincia_id": 33,
+        "nombre": "EL FACTOR"
+    },
+    {
+        "id": 1404,
+        "provincia_id": 33,
+        "nombre": "RIO SAN JUAN"
+    },
+    {
+        "id": 1501,
+        "provincia_id": 62,
+        "nombre": "MONTE CRISTI"
+    },
+    {
+        "id": 1502,
+        "provincia_id": 62,
+        "nombre": "CASTAÃ‘UELAS"
+    },
+    {
+        "id": 1503,
+        "provincia_id": 62,
+        "nombre": "GUAYUBIN"
+    },
+    {
+        "id": 1504,
+        "provincia_id": 62,
+        "nombre": "LAS MATAS DE SANTA CRUZ"
+    },
+    {
+        "id": 1505,
+        "provincia_id": 62,
+        "nombre": "PEPILLO SALCEDO"
+    },
+    {
+        "id": 1506,
+        "provincia_id": 62,
+        "nombre": "VILLA VASQUEZ"
+    },
+    {
+        "id": 1601,
+        "provincia_id": 84,
+        "nombre": "PEDERNALES"
+    },
+    {
+        "id": 1602,
+        "provincia_id": 84,
+        "nombre": "OVIEDO"
+    },
+    {
+        "id": 1701,
+        "provincia_id": 94,
+        "nombre": "BANI"
+    },
+    {
+        "id": 1702,
+        "provincia_id": 94,
+        "nombre": "NIZAO"
+    },
+    {
+        "id": 1703,
+        "provincia_id": 94,
+        "nombre": "MATANZAS"
+    },
+    {
+        "id": 1801,
+        "provincia_id": 57,
+        "nombre": "PUERTO PLATA"
+    },
+    {
+        "id": 1802,
+        "provincia_id": 57,
+        "nombre": "ALTAMIRA"
+    },
+    {
+        "id": 1803,
+        "provincia_id": 57,
+        "nombre": "GUANANICO"
+    },
+    {
+        "id": 1804,
+        "provincia_id": 57,
+        "nombre": "IMBERT"
+    },
+    {
+        "id": 1805,
+        "provincia_id": 57,
+        "nombre": "LOS HIDALGOS"
+    },
+    {
+        "id": 1806,
+        "provincia_id": 57,
+        "nombre": "LUPERON"
+    },
+    {
+        "id": 1807,
+        "provincia_id": 57,
+        "nombre": "SOSUA"
+    },
+    {
+        "id": 1808,
+        "provincia_id": 57,
+        "nombre": "VILLA ISABELA"
+    },
+    {
+        "id": 1809,
+        "provincia_id": 57,
+        "nombre": "VILLA MONTELLANO"
+    },
+    {
+        "id": 1901,
+        "provincia_id": 34,
+        "nombre": "SALCEDO"
+    },
+    {
+        "id": 1902,
+        "provincia_id": 34,
+        "nombre": "TENARES"
+    },
+    {
+        "id": 1903,
+        "provincia_id": 34,
+        "nombre": "VILLA TAPIA"
+    },
+    {
+        "id": 2001,
+        "provincia_id": 32,
+        "nombre": "SAMANA"
+    },
+    {
+        "id": 2002,
+        "provincia_id": 32,
+        "nombre": "SANCHEZ"
+    },
+    {
+        "id": 2003,
+        "provincia_id": 32,
+        "nombre": "LAS TERRENAS"
+    },
+    {
+        "id": 2101,
+        "provincia_id": 91,
+        "nombre": "SAN CRISTOBAL"
+    },
+    {
+        "id": 2102,
+        "provincia_id": 91,
+        "nombre": "SABANA GRANDE DE PALENQUE"
+    },
+    {
+        "id": 2103,
+        "provincia_id": 91,
+        "nombre": "BAJOS DE HAINA"
+    },
+    {
+        "id": 2104,
+        "provincia_id": 91,
+        "nombre": "CAMBITA GARABITOS"
+    },
+    {
+        "id": 2105,
+        "provincia_id": 91,
+        "nombre": "VILLA ALTAGRACIA"
+    },
+    {
+        "id": 2106,
+        "provincia_id": 91,
+        "nombre": "YAGUATE"
+    },
+    {
+        "id": 2107,
+        "provincia_id": 91,
+        "nombre": "SAN GREGORIO DE NIGUA"
+    },
+    {
+        "id": 2108,
+        "provincia_id": 91,
+        "nombre": "LOS CACAOS"
+    },
+    {
+        "id": 2201,
+        "provincia_id": 72,
+        "nombre": "SAN JUAN DE LA MAGUANA"
+    },
+    {
+        "id": 2202,
+        "provincia_id": 72,
+        "nombre": "BOHECHIO"
+    },
+    {
+        "id": 2203,
+        "provincia_id": 72,
+        "nombre": "EL CERCADO"
+    },
+    {
+        "id": 2204,
+        "provincia_id": 72,
+        "nombre": "JUAN DE HERRERA"
+    },
+    {
+        "id": 2205,
+        "provincia_id": 72,
+        "nombre": "LAS MATAS DE FARFAN"
+    },
+    {
+        "id": 2206,
+        "provincia_id": 72,
+        "nombre": "VALLEJUELO"
+    },
+    {
+        "id": 2301,
+        "provincia_id": 21,
+        "nombre": "SAN PEDRO DE MACORIS"
+    },
+    {
+        "id": 2302,
+        "provincia_id": 21,
+        "nombre": "LOS LLANOS"
+    },
+    {
+        "id": 2303,
+        "provincia_id": 21,
+        "nombre": "RAMON SANTANA"
+    },
+    {
+        "id": 2304,
+        "provincia_id": 21,
+        "nombre": "CONSUELO"
+    },
+    {
+        "id": 2305,
+        "provincia_id": 21,
+        "nombre": "QUISQUEYA"
+    },
+    {
+        "id": 2306,
+        "provincia_id": 21,
+        "nombre": "GUAYACANES"
+    },
+    {
+        "id": 2401,
+        "provincia_id": 43,
+        "nombre": "COTUI"
+    },
+    {
+        "id": 2402,
+        "provincia_id": 43,
+        "nombre": "CEVICOS"
+    },
+    {
+        "id": 2403,
+        "provincia_id": 43,
+        "nombre": "FANTINO"
+    },
+    {
+        "id": 2404,
+        "provincia_id": 43,
+        "nombre": "LA MATA"
+    },
+    {
+        "id": 2501,
+        "provincia_id": 51,
+        "nombre": "SANTIAGO"
+    },
+    {
+        "id": 2502,
+        "provincia_id": 51,
+        "nombre": "BISONO"
+    },
+    {
+        "id": 2503,
+        "provincia_id": 51,
+        "nombre": "JANICO"
+    },
+    {
+        "id": 2504,
+        "provincia_id": 51,
+        "nombre": "LICEY AL MEDIO"
+    },
+    {
+        "id": 2505,
+        "provincia_id": 51,
+        "nombre": "SAN JOSE DE LAS MATAS"
+    },
+    {
+        "id": 2506,
+        "provincia_id": 51,
+        "nombre": "TAMBORIL"
+    },
+    {
+        "id": 2507,
+        "provincia_id": 51,
+        "nombre": "VILLA GONZALEZ"
+    },
+    {
+        "id": 2508,
+        "provincia_id": 51,
+        "nombre": "PUÑAL"
+    },
+    {
+        "id": 2509,
+        "provincia_id": 51,
+        "nombre": "SABANA IGLESIA"
+    },
+    {
+        "id": 2510,
+        "provincia_id": 51,
+        "nombre": "BAITOA"
+    },
+    {
+        "id": 2601,
+        "provincia_id": 64,
+        "nombre": "SAN IGNACIO DE SABANETA"
+    },
+    {
+        "id": 2602,
+        "provincia_id": 64,
+        "nombre": "VILLA LOS ALMACIGOS"
+    },
+    {
+        "id": 2603,
+        "provincia_id": 64,
+        "nombre": "MONCION"
+    },
+    {
+        "id": 2701,
+        "provincia_id": 61,
+        "nombre": "MAO"
+    },
+    {
+        "id": 2702,
+        "provincia_id": 61,
+        "nombre": "ESPERANZA"
+    },
+    {
+        "id": 2703,
+        "provincia_id": 61,
+        "nombre": "LAGUNA SALADA"
+    },
+    {
+        "id": 2801,
+        "provincia_id": 42,
+        "nombre": "BONAO"
+    },
+    {
+        "id": 2802,
+        "provincia_id": 42,
+        "nombre": "MAIMON"
+    },
+    {
+        "id": 2803,
+        "provincia_id": 42,
+        "nombre": "PIEDRA BLANCA"
+    },
+    {
+        "id": 2901,
+        "provincia_id": 92,
+        "nombre": "MONTE PLATA"
+    },
+    {
+        "id": 2902,
+        "provincia_id": 92,
+        "nombre": "BAYAGUANA"
+    },
+    {
+        "id": 2903,
+        "provincia_id": 92,
+        "nombre": "SABANA GRANDE DE BOYA"
+    },
+    {
+        "id": 2904,
+        "provincia_id": 92,
+        "nombre": "YAMASA"
+    },
+    {
+        "id": 2905,
+        "provincia_id": 92,
+        "nombre": "PERALVILLO"
+    },
+    {
+        "id": 3001,
+        "provincia_id": 25,
+        "nombre": "HATO MAYOR"
+    },
+    {
+        "id": 3002,
+        "provincia_id": 25,
+        "nombre": "SABANA DE LA MAR"
+    },
+    {
+        "id": 3003,
+        "provincia_id": 25,
+        "nombre": "EL VALLE"
+    },
+    {
+        "id": 3101,
+        "provincia_id": 93,
+        "nombre": "SAN JOSE DE OCOA"
+    },
+    {
+        "id": 3102,
+        "provincia_id": 93,
+        "nombre": "SABANA LARGA"
+    },
+    {
+        "id": 3103,
+        "provincia_id": 93,
+        "nombre": "RANCHO ARRIBA"
+    },
+    {
+        "id": 3201,
+        "provincia_id": 2,
+        "nombre": "SANTO DOMINGO ESTE"
+    },
+    {
+        "id": 3202,
+        "provincia_id": 2,
+        "nombre": "SANTO DOMINGO OESTE"
+    },
+    {
+        "id": 3203,
+        "provincia_id": 2,
+        "nombre": "SANTO DOMINGO NORTE"
+    },
+    {
+        "id": 3204,
+        "provincia_id": 2,
+        "nombre": "BOCA CHICA"
+    },
+    {
+        "id": 3205,
+        "provincia_id": 2,
+        "nombre": "SAN ANTONIO DE GUERRA"
+    },
+    {
+        "id": 3206,
+        "provincia_id": 2,
+        "nombre": "LOS ALCARRIZOS"
+    },
+    {
+        "id": 3207,
+        "provincia_id": 2,
+        "nombre": "PEDRO BRAND"
+    }
+]

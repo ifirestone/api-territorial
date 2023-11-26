@@ -1,0 +1,130 @@
+[
+    {
+        "id": 1,
+        "nombre": "Distrito Nacional"
+    },
+    {
+        "id": 2,
+        "nombre": "Santo Domingo"
+    },
+    {
+        "id": 21,
+        "nombre": "San Pedro de Macorís"
+    },
+    {
+        "id": 22,
+        "nombre": "La Romana"
+    },
+    {
+        "id": 23,
+        "nombre": "La Altagracia"
+    },
+    {
+        "id": 24,
+        "nombre": "El Seibo"
+    },
+    {
+        "id": 25,
+        "nombre": "Hato Mayor"
+    },
+    {
+        "id": 31,
+        "nombre": "Duarte"
+    },
+    {
+        "id": 32,
+        "nombre": "Samaná"
+    },
+    {
+        "id": 33,
+        "nombre": "Maria Trinidad Sánchez"
+    },
+    {
+        "id": 34,
+        "nombre": "Salcedo"
+    },
+    {
+        "id": 41,
+        "nombre": "La Vega"
+    },
+    {
+        "id": 42,
+        "nombre": "Monseñor Nouel"
+    },
+    {
+        "id": 43,
+        "nombre": "Sánchez Ramirez"
+    },
+    {
+        "id": 51,
+        "nombre": "Santiago"
+    },
+    {
+        "id": 56,
+        "nombre": "Espaillat"
+    },
+    {
+        "id": 57,
+        "nombre": "Puerto Plata"
+    },
+    {
+        "id": 61,
+        "nombre": "Valverde"
+    },
+    {
+        "id": 62,
+        "nombre": "Monte Cristi"
+    },
+    {
+        "id": 63,
+        "nombre": "Dajabónn"
+    },
+    {
+        "id": 64,
+        "nombre": "Santiago Rodríguez"
+    },
+    {
+        "id": 71,
+        "nombre": "Azua"
+    },
+    {
+        "id": 72,
+        "nombre": "San Juan"
+    },
+    {
+        "id": 73,
+        "nombre": "Elías Piña"
+    },
+    {
+        "id": 81,
+        "nombre": "Barahona"
+    },
+    {
+        "id": 82,
+        "nombre": "Bahoruco"
+    },
+    {
+        "id": 83,
+        "nombre": "Independencia"
+    },
+    {
+        "id": 84,
+        "nombre": "Perdenales"
+    },
+    {
+        "id": 91,
+        "nombre": "San Cristóbal"
+    },
+    {
+        "id": 92,
+        "nombre": "Monte Plata"
+    },
+    {
+        "id": 93,
+        "nombre": "San José de Ocoa"
+    },
+    {
+        "id": 94,
+        "nombre": "Peravia"
+    }
+]
